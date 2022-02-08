@@ -109,7 +109,8 @@ class scrapeJobs():
         cur = conn.cursor()
         # define and execute query
         last_batch = """SELECT url FROM datajobs 
-        WHERE fetch_date = (SELECT MAX(fetch_date) FROM datajobs)"""
+        WHERE fetch_date = (SELECT MAX(fetch_date) FROM datajobs WHERE source = 'Tech Jobs for Good')
+        AND source = 'Tech Jobs for Good'"""
         cur.execute(last_batch)
         query_results = cur.fetchall() 
         query_results = [x[0] for x in query_results]       
@@ -126,8 +127,11 @@ class scrapeJobs():
             quit()
 
         # add column for fetch date
-        self.date = pd.to_datetime('today').strftime("%m_%d_%")
+        self.date = pd.to_datetime('today').strftime("%m_%d_%y")
         jobs['fetch_date']= pd.to_datetime('today').isoformat()
+
+        # source
+        jobs['source'] = 'Tech Jobs for Good'
 
         # write to csv
         jobs.to_csv(f'ETL/batches/tj4g-batch-{self.date}.csv', index=False, sep='\t')
@@ -136,7 +140,7 @@ class scrapeJobs():
         """ Write to PostgreSQL database."""
 
         # path to file for writing
-        data_dir = Path(Path.cwd() / 'ETL' / 'batches' / f'batch-{self.date}.csv')
+        data_dir = Path(Path.cwd() / 'ETL' / 'batches' / f'tj4g-batch-{self.date}.csv')
         config = self.config 
 
         # instantiate connection & curson

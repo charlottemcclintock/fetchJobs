@@ -1,9 +1,9 @@
 # fetchJobs
 
-scraping jobs for exploration of opporunities
+scraping jobs to explore opportunities
 
 using:
 
 - beautiful soup, selenium to parse html
-- cron to schedule weekly refresh
+- cron to schedule refresh cadence
 - PostgreSQL database for storage

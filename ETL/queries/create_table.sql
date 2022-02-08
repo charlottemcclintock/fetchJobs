@@ -9,5 +9,6 @@ posted varchar(32),
 skills varchar(244), 
 category varchar(64), 
 job_desc text, 
-fetch_date timestamp
+fetch_date timestamp,
+source varchar(64)
 );
