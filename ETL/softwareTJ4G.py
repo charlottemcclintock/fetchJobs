@@ -11,10 +11,6 @@ import psycopg2
 from pathlib import Path
 import json
 
-0 0 * * 2,4,6 /usr/local/bin/python3 /Users/charlottemcclintock/Mine/Projects/Active/fetchJobs/ETL/softwareClimate.py
-0 0 * * 2,5 /usr/local/bin/python3 /Users/charlottemcclintock/Mine/Projects/Active/fetchJobs/ETL/softwareTJ4G.py
-
-
 class scrapeJobs():
     def __init__(self, debug=True):
             self.debug = debug 
