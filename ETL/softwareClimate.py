@@ -16,7 +16,7 @@ class scrapeJobs():
     def __init__(self, debug=True):
             self.debug = debug 
             self.main_url = 'https://climatebase.org/jobs?l=&q=&categories=Engineering%3A+Software&job_types=Full+time+role&p=1'
-            self.table = 'datajobs'
+            self.table = 'softwarejobs'
     
     def get_jobs(self):
         # selenium set up

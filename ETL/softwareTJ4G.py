@@ -11,12 +11,16 @@ import psycopg2
 from pathlib import Path
 import json
 
+0 0 * * 2,4,6 /usr/local/bin/python3 /Users/charlottemcclintock/Mine/Projects/Active/fetchJobs/ETL/softwareClimate.py
+0 0 * * 2,5 /usr/local/bin/python3 /Users/charlottemcclintock/Mine/Projects/Active/fetchJobs/ETL/softwareTJ4G.py
+
+
 class scrapeJobs():
     def __init__(self, debug=True):
             self.debug = debug 
-            self.main_url = 'https://techjobsforgood.com/jobs/?q=&job_function=Data+%2B+Analytics&sort_by=date&page=1'
+            self.main_url = 'https://techjobsforgood.com/jobs/?q=software&page=1&sort_by=date#q'
             self.table = 'softwarejobs'
-    
+
     def get_metadata(self):
         """Get job metadata from box layouts."""
 

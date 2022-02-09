@@ -1,5 +1,5 @@
 
-CREATE TABLE public."datajobs"
+CREATE TABLE public."softwarejobs"
 (job_title varchar(128), 
 organization varchar(128), 
 location varchar(128), 
